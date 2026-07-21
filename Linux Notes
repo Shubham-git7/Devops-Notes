@@ -1,1 +1,34 @@
 Linux
+#!/bin/bash           (shabang)
+
+#########################################################################
+
+#!/bin/bash
+
+  GNU nano 7.2                                       basic_linux_env.sh *
+mkdir -p {documents,photos,music,backup,temp}
+mkdir -p documents/{personal,work,others}
+
+# 2. Create sample files
+echo "Creating a sample files.."
+
+# Text files for basics operations
+echo "This is a sample file." > documents/file.txt
+echo "This is a sample file 2." > documents/file2.txt
+echo "This is a sample file 3." > documents/file3.txt
+
+# creating number files for sorting practice
+for i in {1..5}; do
+        echo "Line $i" > documents/personal/number_$i.txt
+done
+
+# Create a simple lof file
+cat > documents/work/employees.txt <<EOF
+2024-02-16 10:00:00 INFO: System started
+2024-02-16 10:05:00 ERROR: Connection failed
+2024-02-16 10:10:00 INFO: Connection restored
+2024-02-16 10:15:00 WARNING: High CPU usage
+2024-02-16 10:20:00 ERROR: Disk space low
+EOF
+
+###########################################################################
