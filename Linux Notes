@@ -32,3 +32,12 @@ cat > documents/work/employees.txt <<EOF
 EOF
 
 ###########################################################################
+grep
+find 
+cut -d
+CSV kit
+csvcut -c id,department,salary path | column -t -s  //comma separateed list of column
+csvcut -C
+csvsql 
+sort
+chmod -x //provide all permissions
