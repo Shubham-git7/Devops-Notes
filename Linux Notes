@@ -40,4 +40,25 @@ csvcut -c id,department,salary path | column -t -s  //comma separateed list of c
 csvcut -C
 csvsql 
 sort
-chmod -x //provide all permissions
+chmod -x //provide all permissions  
+
+
+pwd 
+ls -l, -a, -r, -t
+cd
+mkdir 
+rm -rf
+rmdir
+cp -r
+mv
+ln -s
+touch
+cat
+nano
+echo
+
+basic shellscript 
+chmod +x
+
+====================================================================
+
