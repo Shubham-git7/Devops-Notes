@@ -69,5 +69,14 @@ tree
 csvkit -- csvcut, csvsql
 head
 
+Storage :=====================================
+df -h
+fdisk -l  
+du 
+df -h
+du -s -h  (details store)
+wsl -l -v
 
-
+===============================================================
+tar : archive utility (-f  , -z, -v ,  )
+dpkg -l (install packages in system)
