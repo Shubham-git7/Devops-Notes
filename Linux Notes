@@ -63,8 +63,12 @@ chmod +x
 ====================================================================
 
 ## File Processing
-grep
+grep 'ERROR' path
 find
+find / ============================ all search
+find / -name '*.txt'
+find / -size +900M
+locate
 tree
 csvkit -- csvcut, csvsql
 head
@@ -79,4 +83,15 @@ wsl -l -v
 
 ===============================================================
 tar : archive utility (-f  , -z, -v ,  )
-dpkg -l (install packages in system)
+dpkg -l (install packages in system) | grep "git"
+snap list
+apt list
+
+===========================
+which docker  : give path
+whereis docker : same
+awk '/ERROR/ {print $0}' path : imp command 
+awk -F '{sum += $5} END {print "TOTAL:", sum}' /employee.csv 
+
+
+
