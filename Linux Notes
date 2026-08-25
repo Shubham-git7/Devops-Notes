@@ -95,7 +95,24 @@ awk -F '{sum += $5} END {print "TOTAL:", sum}' /employee.csv
 
 =========================
 gpg -c filename : for password lagao file ko
-when to create pass that time  
+when to create pass that time  it make another file with filenamne end with .gpg
+lsb_release -a : summeory of distro
+
+hostnamectl 
+hostnamectl set-hostname ilu
+
+============================
+Process management==============
+ps -e | grep "bash" : work as taask manager
+ps -ef : detail
+ps -ejh 
+ps -aux
+top : display linux process(basic top usage)
+htop : detailed top
+-u  = use this flag to see particular user
+$ sudo top -u sng  = for particular user
+
+
 
 
 
