@@ -111,7 +111,13 @@ top : display linux process(basic top usage)
 htop : detailed top
 -u  = use this flag to see particular user
 $ sudo top -u sng  = for particular user
+kill PID
+killall notepad
+pkill -u sng : sng user start kiya hyua har process kill kardega
+lsof : list of all opoen files
 
+=============================
+chown 
 
 
 
