@@ -93,5 +93,9 @@ whereis docker : same
 awk '/ERROR/ {print $0}' path : imp command 
 awk -F '{sum += $5} END {print "TOTAL:", sum}' /employee.csv 
 
+=========================
+gpg -c filename : for password lagao file ko
+when to create pass that time  
+
 
 
