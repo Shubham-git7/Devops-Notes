@@ -122,3 +122,248 @@ chown
 
 
 
+
+
+
+
+
+
+
+
+process management
+
+uname  - system and kernel info
+uname -a -r
+cd - change dir
+cd - (minus) : similar ro cd..
+cd ~ : home dir
+cd / : root user
+d : directory
+- : regular file
+l : link file
+
+r : read
+w : write
+x : execution
+
+chmod +x (give all permission)
+chmod u+x (give all permission) mera khud jo current user hai uske liye
+chmod -w filename : remove write permission
+chmod g-w filename :  write permission remove for group
+
+
+r - 4
+w - 2
+x - 1
+
+OWNER GROUP OTHRRS
+  7     5     5
+ RWX   R-X   R-X
+
+CHMOD 755 FILENAME.txt = OWNER = R+W+E, GROUP = R+E, OTHERS = R+EOF  
+GPG
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+shellscripting: 
+> shell script consist of set of commands to perform a task.
+>All the commands execute sequentially.
+
+First Basic Script..
+> #!/bin/bash     ===> it means shebang
+ 
+echo "echo Hellow world"
+
+==============================
+=> How to Run script ?
+> Make sure script has execute permiss rwx
+>Run using 
+  ./script.sh
+  /path/script.sh
+  bash script.sh
+>ctrl+c to terminate 
+>ctrl+z to stop
+
+==============================
+For permission check 
+>ls -ltr
+>#single line comment
+<<comment
+lkjngkjfsnk
+kjfgjksfdjk
+comment
+===============================
+=> What are variables ?
+> VAR_NAME=value
+  VAR_NAME=$(hostname)
+  echo $VAR_NAME 
+
+================================
+
+Once you defined a variable and don't wanna change it until end of the script.
+
+readonly var_name="HI"
+
+==============================
+Arrays =>
+ 
+=>HOW define Array ?4
+>myArray=( 1 2 Hello "Hey man")
+
+=> HOw to get value from array?
+echo "${myArray[0]}"
+echo "${myArray[1]}"
+
+>> How get the lenth number length of array
+myArray=(1 2 3 teach "mw")
+echo "No,of values, length of an array is ${#myArray[*]}"
+
+>> How to get specific values?
+echo "${myArray[*]:1:2}"
+
+>>How to update an array?
+myArray+=(5 6 8)
+
+declare -A myArray
+myArray=([name]=shubham [age]=23)
+echo "${myArray[name]}"
+ 
+======================================
+
+===> Strings OPerations
+>>
+myVar="Hellow World"
+length=${#myVar}
+upper={x^^}
+lower={y,,}
+replace=${myVar/world/buddy}
+slice=${myVar:6:11}
+
+========================================
+Taking Input from User : 
+read name
+read -p "what is your name" NAME
+
+=======================================
+=====> Arthematic Operations:
+
+>>Using let command
+let a++
+let a=5*10
+
+((a++))
+((a=5*10))
+
+======================================== 
+========> Conditional statement :
+>>
+************
+IF-ELSE
+
+read marks
+if[$marks -gt 40 ]
+then
+	echo"you are PASS"
+else
+	echo "your are fail"
+fi
+
+Note : (Here the elif condion is olso there)
+
+************
+
+Equal => -eq/==
+greaterthannorequalto => -ge
+lessthannorequalto => -le
+not equal => -ne/!=
+greater than => -gt
+less than => -lt
+
+**************
+
+>>Cases 
+
+echo "Hey choose an option"
+echo "a = To see current date"
+echo "b = list all the files in current dir"
+
+read choice
+case $choice in 
+	a) date;;         (note : ;; ye jo hai end ke liye use hota)
+	b) ls;;
+	*) echo "not a valid input"
+esac
+
+========================================
+
+======>>Logical OPerators 
+&&, ||, !
+
+========================================
+
+=====>>For loop
+************************
+for i in 1 2 3 4 5 6 
+do 
+echo "Number is $i"
+done
+************************
+Note : (Other way to write loop is ..)
+for j in Raju sham Bapurao
+for p in {1..20}
+*************************
+>>Iterate values from file.
+
+items="/home/paul/file.txt"
+for item in $(cat $items)
+do
+	echo $item
+done
+***************************
+Note : we can also use this is with in an array
+myArray=( 1 2 3 4 Hello HI)
+length=${#myArray[*]}
+
+*************************
+>>While loop :
+count=0
+num=0
+while [ $count -le $num ]
+do
+	echo "Numbers are $count"
+	let count++
+done 
+**************************
+>>while loop To read content from a file
+while read myVar
+do
+	echo $myVar
+done < file_name
+*************************
+>>until loop 
+                                                                                                                       [ $a -eq 1 ]
+do 
+	echo $a
+	a=`expr $a - 1 `
+**************************
+Infinite loop
+do
+	echo "HI"
+	sleep 2s
+done
+=======================
+
+
+
+
