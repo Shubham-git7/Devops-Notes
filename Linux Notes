@@ -367,3 +367,70 @@ done
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In case if you dont wanna print the of a command on terminal or write in a file.
+we can redirect the output to 
+/dev/null
+
+Example: 
+#cd /root &> /dev/null
+
+Print the name of the script is: ${0}
+
+=============================
+Log message :
+If you want to maintain the loging for yor script, you can use logger in your script.
+
+you can find the logs under 
+/var/logs/messages
+
+example: #logger "Hey buddy"
+
+================================
+Debugging scripts :
+If we can enable the debugging of the script using below in the script
+set -x
+set -e (tabhi use karo jab script agar error de raha hib atb ruk jaye ageye jane se)  
+==================================
+
+>Automate our script
+>At or crontab 
+For scheduling only one tume, use AT
+
+at 12:09 PM
+<your_command>
+Ctrl + D
+
+atq :To check scheduled job
+atrm <id> to remove the schedule 
+
+===================================
+
+To check existing jobs - crontab -l
+To add new job          - crontab -e
+***** cd /home/paul/scripts && ./create_file.sh
+
+====================================
+
