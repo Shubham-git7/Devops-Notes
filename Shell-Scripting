@@ -1,1 +1,310 @@
-wef
+shellscripting: 
+> shell script consist of set of commands to perform a task.
+>All the commands execute sequentially.
+
+First Basic Script..
+> #!/bin/bash     ===> it means shebang
+ 
+echo "echo Hellow world"
+
+==============================
+=> How to Run script ?
+> Make sure script has execute permiss rwx
+>Run using 
+  ./script.sh
+  /path/script.sh
+  bash script.sh
+>ctrl+c to terminate 
+>ctrl+z to stop
+
+==============================
+For permission check 
+>ls -ltr
+>#single line comment
+<<comment
+lkjngkjfsnk
+kjfgjksfdjk
+comment
+===============================
+=> What are variables ?
+> VAR_NAME=value
+  VAR_NAME=$(hostname)
+  echo $VAR_NAME 
+
+================================
+
+Once you defined a variable and don't wanna change it until end of the script.
+
+readonly var_name="HI"
+
+==============================
+Arrays =>
+ 
+=>HOW define Array ?4
+>myArray=( 1 2 Hello "Hey man")
+
+=> HOw to get value from array?
+echo "${myArray[0]}"
+echo "${myArray[1]}"
+
+>> How get the lenth number length of array
+myArray=(1 2 3 teach "mw")
+echo "No,of values, length of an array is ${#myArray[*]}"
+
+>> How to get specific values?
+echo "${myArray[*]:1:2}"
+
+>>How to update an array?
+myArray+=(5 6 8)
+
+declare -A myArray
+myArray=([name]=shubham [age]=23)
+echo "${myArray[name]}"
+ 
+======================================
+
+===> Strings OPerations
+>>
+myVar="Hellow World"
+length=${#myVar}
+upper={x^^}
+lower={y,,}
+replace=${myVar/world/buddy}
+slice=${myVar:6:11}
+
+========================================
+Taking Input from User : 
+read name
+read -p "what is your name" NAME
+
+=======================================
+=====> Arthematic Operations:
+
+>>Using let command
+let a++
+let a=5*10
+
+((a++))
+((a=5*10))
+
+======================================== 
+========> Conditional statement :
+>>
+************
+IF-ELSE
+
+read marks
+if[$marks -gt 40 ]
+then
+	echo"you are PASS"
+else
+	echo "your are fail"
+fi
+
+Note : (Here the elif condion is olso there)
+
+************
+
+Equal => -eq/==
+greaterthannorequalto => -ge
+lessthannorequalto => -le
+not equal => -ne/!=
+greater than => -gt
+less than => -lt
+
+**************
+
+>>Cases 
+
+echo "Hey choose an option"
+echo "a = To see current date"
+echo "b = list all the files in current dir"
+
+read choice
+case $choice in 
+	a) date;;         (note : ;; ye jo hai end ke liye use hota)
+	b) ls;;
+	*) echo "not a valid input"
+esac
+
+========================================
+
+======>>Logical OPerators 
+&&, ||, !
+
+========================================
+
+=====>>For loop
+************************
+for i in 1 2 3 4 5 6 
+do 
+echo "Number is $i"
+done
+************************
+Note : (Other way to write loop is ..)
+for j in Raju sham Bapurao
+for p in {1..20}
+*************************
+>>Iterate values from file.
+
+items="/home/paul/file.txt"
+for item in $(cat $items)
+do
+	echo $item
+done
+***************************
+Note : we can also use this is with in an array
+myArray=( 1 2 3 4 Hello HI)
+length=${#myArray[*]}
+
+*************************
+>>While loop :
+count=0
+num=0
+while [ $count -le $num ]
+do
+	echo "Numbers are $count"
+	let count++
+done 
+**************************
+>>while loop To read content from a file
+while read myVar
+do
+	echo $myVar
+done < file_name
+*************************
+>>until loop 
+                                                                                                                       [ $a -eq 1 ]
+do 
+	echo $a
+	a=`expr $a - 1 `
+**************************
+Infinite loop
+do
+	echo "HI"
+	sleep 2s
+done
+=======================
+
+In case if you dont wanna print the of a command on terminal or write in a file.
+we can redirect the output to 
+/dev/null
+
+Example: 
+#cd /root &> /dev/null
+
+Print the name of the script is: ${0}
+
+=============================
+Log message :
+If you want to maintain the loging for yor script, you can use logger in your script.
+
+you can find the logs under 
+/var/logs/messages
+
+example: #logger "Hey buddy"
+
+================================
+Debugging scripts :
+If we can enable the debugging of the script using below in the script
+set -x
+set -e (tabhi use karo jab script agar error de raha hib atb ruk jaye ageye jane se)  
+==================================
+
+>Automate our script
+>At or crontab 
+For scheduling only one tume, use AT
+
+at 12:09 PM
+<your_command>
+Ctrl + D
+
+atq :To check scheduled job
+atrm <id> to remove the schedule 
+
+===================================
+
+To check existing jobs - crontab -l
+To add new job          - crontab -e
+***** cd /home/paul/scripts && ./create_file.sh
+
+====================================
+
+To read content from csv file
+while IFS="," read f1 f2 f3
+do
+	echo $f1
+	echo $f2
+	echo $f3
+done < file_name.csv
+*************************
+Enhance version to read csv file: 
+cat myfile.scv | awk 'NR!=1 {print}' | while IFS="," read f1 f2 f3b
+*************************
+
+=====================================================
+>>Functions
+function myfun {
+
+	echo "hi"
+}
+myfun() {
+echo "Hello"
+}
+----------------------------
+To call the function 
+myfun
+====================================================
+
+==> Arguments
+
+echo "First argume\nt is $1"
+echo "First argume\nt is $2"
+
+********
+For all argument use - $@
+Number of arguments are - $#
+********
+For loop to access the values from arguments
+
+for filename in $@
+do	
+	echo "coping file - $x`filename"
+done
+
+((((Note : When you run aguments that time use when run the script is like : bash 26_args.sh test.csv myfile.csv )))
+**************
+<<For shifting arguments 
+When we pass multiple arguments, we can shift
+A B C
+SHIFT
+B C
+====================================================
+>>Other Concepts : 
+break - to stop the loop
+continue - to stop current iteratiom of loop and start next iteration
+sleep - create delay btw two executions 1s/
+
+exit - To stop script at a point.
+status $? - gives you status of previous command successful or not.
+
+basename : strip directory info and only give filename
+realpath ; GIVE you full path / directory path bss name likh do
+dirname : strip the filename and gives directory path
+
+UID
+
+Redirection in screpts
+> : use for if output need to copy in txt file 
+>> : past ka bhi save rahega 
+Ex : ping -C 1 www.google .com > redirect.log
+
+**************************************************
+check If file or dir exist's :
+if [-d folder_name] If folder exist
+if [! -d folder_name] If folder not exist
+if [-f file_name exit] If file exist
+if [! -f file_name] If file not exist
+
+===================================================
+
