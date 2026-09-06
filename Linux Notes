@@ -434,3 +434,81 @@ To add new job          - crontab -e
 
 ====================================
 
+To read content from csv file
+while IFS="," read f1 f2 f3
+do
+	echo $f1
+	echo $f2
+	echo $f3
+done < file_name.csv
+*************************
+Enhance version to read csv file: 
+cat myfile.scv | awk 'NR!=1 {print}' | while IFS="," read f1 f2 f3b
+*************************
+
+=====================================================
+>>Functions
+function myfun {
+
+	echo "hi"
+}
+myfun() {
+echo "Hello"
+}
+----------------------------
+To call the function 
+myfun
+====================================================
+
+==> Arguments
+
+echo "First argume\nt is $1"
+echo "First argume\nt is $2"
+
+********
+For all argument use - $@
+Number of arguments are - $#
+********
+For loop to access the values from arguments
+
+for filename in $@
+do	
+	echo "coping file - $x`filename"
+done
+
+((((Note : When you run aguments that time use when run the script is like : bash 26_args.sh test.csv myfile.csv )))
+**************
+<<For shifting arguments 
+When we pass multiple arguments, we can shift
+A B C
+SHIFT
+B C
+====================================================
+>>Other Concepts : 
+break - to stop the loop
+continue - to stop current iteratiom of loop and start next iteration
+sleep - create delay btw two executions 1s/
+
+exit - To stop script at a point.
+status $? - gives you status of previous command successful or not.
+
+basename : strip directory info and only give filename
+realpath ; GIVE you full path / directory path bss name likh do
+dirname : strip the filename and gives directory path
+
+UID
+
+Redirection in screpts
+> : use for if output need to copy in txt file 
+>> : past ka bhi save rahega 
+Ex : ping -C 1 www.google .com > redirect.log
+
+**************************************************
+check If file or dir exist's :
+if [-d folder_name] If folder exist
+if [! -d folder_name] If folder not exist
+if [-f file_name exit] If file exist
+if [! -f file_name] If file not exist
+
+===================================================
+
